@@ -1,5 +1,12 @@
 # YandexMapsFormTypeBundle
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/it-blaster/yandex-maps-form-type-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/yandex-maps-form-type-bundle/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/it-blaster/yandex-maps-form-type-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/yandex-maps-form-type-bundle/build-status/master)
+[![License](https://poser.pugx.org/it-blaster/yandex-maps-form-type-bundle/license.svg)](https://packagist.org/packages/it-blaster/yandex-maps-form-type-bundle)
+[![Total Downloads](https://poser.pugx.org/it-blaster/yandex-maps-form-type-bundle/downloads)](https://packagist.org/packages/it-blaster/yandex-maps-form-type-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/it-blaster/yandex-maps-form-type-bundle/v/unstable.svg)](https://packagist.org/packages/it-blaster/yandex-maps-form-type-bundle)
+[![Latest Stable Version](https://poser.pugx.org/it-blaster/yandex-maps-form-type-bundle/v/stable.svg)](https://packagist.org/packages/it-blaster/yandex-maps-form-type-bundle)
+
 Set the latitude and longitude using Yandex Maps
 
 ## Installation
