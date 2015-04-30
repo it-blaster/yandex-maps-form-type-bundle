@@ -1,0 +1,8 @@
+services:
+    fenrizbes_yandex_maps.form.type.yandex_maps:
+        class: Fenrizbes\YandexMapsFormTypeBundle\Form\Type\YandexMapsType
+        arguments:
+            - %fenrizbes_yamap.size%
+            - %fenrizbes_yamap.default%
+        tags:
+            - { name: form.type, alias: yandex_maps }
