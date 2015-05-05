@@ -1,5 +1,5 @@
 {% block yandex_maps_widget %}
-    <div id="{{ form.vars.id }}" style="width: {{ form.vars.width }}px; height: {{ form.vars.height }}px;"></div>
+    <div id="{{ form.vars.id }}" class="{{ attr.class }}" style="width: {{ form.vars.width }}px; height: {{ form.vars.height }}px;"></div>
 
     {% for child in form %}
         {% if child.vars.value is empty %}
