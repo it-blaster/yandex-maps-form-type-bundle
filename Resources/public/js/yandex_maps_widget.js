@@ -48,6 +48,11 @@ YandexMapsWidgetClass.prototype._placeMark = function() {
 YandexMapsWidgetClass.prototype._bindEvents = function() {
     var _this = this;
 
+    this.ya_map.events.add('click', function(e) {
+        _this.placemark.geometry.setCoordinates(e.get('coords'));
+        _this.placemark.events.fire('drag');
+    });
+
     this.placemark.events.add('drag', function() {
         var coordinates = _this.placemark.geometry.getCoordinates();
 
