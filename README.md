@@ -29,10 +29,11 @@ new Fenrizbes\YandexMapsFormTypeBundle\FenrizbesYandexMapsFormTypeBundle(),
 ...
 ```
 
-Include bundle's scripts in your page:
+Include Yandex Maps' and bundle's scripts in your page:
 
 ```html
 ...
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script src="{{ asset('bundles/fenrizbesyandexmapsformtype/js/yandex_maps_widget.js') }}"></script>
 ...
 ```
