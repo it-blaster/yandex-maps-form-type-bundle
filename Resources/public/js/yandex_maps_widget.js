@@ -1,10 +1,11 @@
-var YandexMapsWidgetClass = function(id) {
-    this.id        = id;
-    this.lat_input = document.getElementById(this.id +'_lat');
-    this.lng_input = document.getElementById(this.id +'_lng');
-    this.center    = [ this.lat_input.value, this.lng_input.value ];
-    this.ya_map    = null;
-    this.placemark = null;
+var YandexMapsWidgetClass = function(id, parameters) {
+    this.id         = id;
+    this.lat_input  = document.getElementById(this.id +'_lat');
+    this.lng_input  = document.getElementById(this.id +'_lng');
+    this.center     = [ this.lat_input.value, this.lng_input.value ];
+    this.parameters = parameters;
+    this.ya_map     = null;
+    this.placemark  = null;
 
     this._init();
 };
@@ -25,12 +26,15 @@ YandexMapsWidgetClass.prototype._init = function() {
 
 YandexMapsWidgetClass.prototype._createMap = function() {
     this.ya_map = new ymaps.Map(this.id, {
+        type:     this.parameters.type,
         center:   this.center,
-        zoom:     11,
-        controls: [ 'zoomControl' ]
+        zoom:     this.parameters.zoom,
+        controls: this.parameters.controls
     });
 
-    this.ya_map.behaviors.disable('scrollZoom');
+    if (this.parameters.scrollZoom === false) {
+        this.ya_map.behaviors.disable('scrollZoom');
+    }
 
     return this;
 };

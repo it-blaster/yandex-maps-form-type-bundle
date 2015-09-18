@@ -1,10 +1,10 @@
 {% block yandex_maps_widget %}
-    <div id="{{ form.vars.id }}" class="{{ attr.class }}" style="width: {{ form.vars.width }}px; height: {{ form.vars.height }}px;"></div>
+    <div id="{{ id }}" class="{{ attr.class }}" style="width: {{ width }}px; height: {{ height }}px;"></div>
 
     {% for child in form %}
         {% if child.vars.value is empty %}
             {{ form_row(child, {
-                value: form.vars.default[child.vars.name]
+                value: default[ child.vars.name ]
             }) }}
         {% else %}
             {{ form_row(child) }}
@@ -12,6 +12,6 @@
     {% endfor %}
 
     <script>
-        new YandexMapsWidgetClass('{{ form.vars.id }}');
+        new YandexMapsWidgetClass('{{ id }}', {{ parameters | json_encode | raw }});
     </script>
 {% endblock %}

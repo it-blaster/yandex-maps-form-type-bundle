@@ -25,13 +25,22 @@ class YandexMapsType extends AbstractType
     protected $default;
 
     /**
+     * Map's parameters
+     *
+     * @var array
+     */
+    protected $parameters;
+
+    /**
      * @param array $size
      * @param array $default
+     * @param array $parameters
      */
-    public function __construct(array $size, array $default)
+    public function __construct(array $size, array $default, array $parameters)
     {
-        $this->size    = $size;
-        $this->default = $default;
+        $this->size       = $size;
+        $this->default    = $default;
+        $this->parameters = $parameters;
     }
 
     /**
@@ -48,12 +57,10 @@ class YandexMapsType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'width'   => $this->size['width'],
-            'height'  => $this->size['height'],
-            'default' => array(
-                'lat' => $this->default['lat'],
-                'lng' => $this->default['lng']
-            )
+            'width'      => $this->size['width'],
+            'height'     => $this->size['height'],
+            'default'    => $this->default,
+            'parameters' => $this->parameters
         ));
     }
 
@@ -73,8 +80,9 @@ class YandexMapsType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['width']   = $options['width'];
-        $view->vars['height']  = $options['height'];
-        $view->vars['default'] = $options['default'];
+        $view->vars['width']      = $options['width'];
+        $view->vars['height']     = $options['height'];
+        $view->vars['default']    = $options['default'];
+        $view->vars['parameters'] = $options['parameters'];
     }
 }

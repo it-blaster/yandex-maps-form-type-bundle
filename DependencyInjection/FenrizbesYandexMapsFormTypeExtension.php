@@ -38,8 +38,9 @@ class FenrizbesYandexMapsFormTypeExtension extends Extension
      */
     protected function setParameters(ContainerBuilder $container, array $config)
     {
-        $container->setParameter('fenrizbes_yamap.size',    $config['size']);
-        $container->setParameter('fenrizbes_yamap.default', $config['default']);
+        $container->setParameter('fenrizbes_yamap.size',       $config['size']);
+        $container->setParameter('fenrizbes_yamap.default',    $config['default']);
+        $container->setParameter('fenrizbes_yamap.parameters', $config['parameters']);
     }
 
     /**

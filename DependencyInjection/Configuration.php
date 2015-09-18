@@ -53,6 +53,33 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+
+                ->arrayNode('parameters')
+                    ->addDefaultsIfNotSet()
+
+                    ->children()
+                        ->scalarNode('type')
+                            ->cannotBeEmpty()
+                            ->defaultValue('yandex#map')
+                        ->end()
+
+                        ->scalarNode('zoom')
+                            ->cannotBeEmpty()
+                            ->defaultValue(11)
+                        ->end()
+
+                        ->booleanNode('scrollZoom')
+                            ->cannotBeEmpty()
+                            ->defaultValue(false)
+                        ->end()
+
+                        ->arrayNode('controls')
+                            ->prototype('scalar')->end()
+                            ->cannotBeEmpty()
+                            ->defaultValue(array('zoomControl'))
+                        ->end()
+                    ->end()
+                ->end()
             ->end()
         ;
 

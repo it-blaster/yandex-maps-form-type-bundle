@@ -4,5 +4,6 @@ services:
         arguments:
             - %fenrizbes_yamap.size%
             - %fenrizbes_yamap.default%
+            - %fenrizbes_yamap.parameters%
         tags:
             - { name: form.type, alias: yandex_maps }

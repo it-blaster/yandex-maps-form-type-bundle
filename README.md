@@ -29,11 +29,10 @@ new Fenrizbes\YandexMapsFormTypeBundle\FenrizbesYandexMapsFormTypeBundle(),
 ...
 ```
 
-Include Yandex Maps' and bundle's scripts in your page:
+Include bundle's scripts in your page:
 
 ```html
 ...
-<script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script src="{{ asset('bundles/fenrizbesyandexmapsformtype/js/yandex_maps_widget.js') }}"></script>
 ...
 ```
@@ -58,11 +57,19 @@ There are a few options that you can pass:
 ```php
 ...
     ->add('coordinates', 'yandex_maps', array(
-        'width'   => 640,      // The map's width
-        'height'  => 480,      // The map's height
-        'default' => array(
+        'width'      => 640,      // The map's width
+        'height'     => 480,      // The map's height
+        'default'    => array(
             'lat' => 55.75319, // The default latitude value
             'lng' => 37.619953 // The default longitude value
+        ),
+        'parameters' => array(
+            'type'       => 'yandex#map', // The default map's type
+            'zoom'       => 11,           // The initial zoom size
+            'scrollZoom' => false,        // Enable/disable scroll zoom
+            'controls'   => array(        // Enabled map's controls
+                'zoomControl'
+            )
         )
     ))
 ...
@@ -81,5 +88,10 @@ fenrizbes_yandex_maps_form_type:
     default:
         lat: 55.75319
         lng: 37.619953
+    parameters:
+        type:       'yandex#map'
+        zoom:       11
+        scrollZoom: false
+        controls:   [ 'zoomControl' ]
 ...
 ```
