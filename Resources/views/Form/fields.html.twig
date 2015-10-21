@@ -12,6 +12,6 @@
     {% endfor %}
 
     <script>
-        new YandexMapsWidgetClass('{{ id }}', {{ parameters | json_encode | raw }});
+        var {{ name }}YandexMap = new YandexMapsWidgetClass('{{ id }}', {{ parameters | json_encode | raw }});
     </script>
 {% endblock %}
