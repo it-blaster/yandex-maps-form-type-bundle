@@ -64,10 +64,11 @@ There are a few options that you can pass:
             'lng' => 37.619953 // The default longitude value
         ),
         'parameters' => array(
-            'type'       => 'yandex#map', // The default map's type
-            'zoom'       => 11,           // The initial zoom size
-            'scrollZoom' => false,        // Enable/disable scroll zoom
-            'controls'   => array(        // Enabled map's controls
+            'type'          => 'yandex#map', // The default map's type
+            'zoom'          => 11,           // The initial zoom size
+            'scrollZoom'    => false,        // Enable/disable scroll zoom
+            'searchSupport' => false,        // Enable/disable searching objects by searchControl
+            'controls'      => array(        // Enabled map's controls
                 'zoomControl'
             )
         )
@@ -89,9 +90,10 @@ fenrizbes_yandex_maps_form_type:
         lat: 55.75319
         lng: 37.619953
     parameters:
-        type:       'yandex#map'
-        zoom:       11
-        scrollZoom: false
-        controls:   [ 'zoomControl' ]
+        type:          'yandex#map'
+        zoom:          11
+        scrollZoom:    false
+        searchControl: false
+        controls:      [ 'zoomControl' ]
 ...
 ```
