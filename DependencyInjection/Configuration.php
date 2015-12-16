@@ -73,6 +73,11 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue(false)
                         ->end()
 
+                        ->booleanNode('searchSupport')
+                            ->cannotBeEmpty()
+                            ->defaultValue(false)
+                        ->end()
+
                         ->arrayNode('controls')
                             ->prototype('scalar')->end()
                             ->cannotBeEmpty()

@@ -25,6 +25,8 @@ YandexMapsWidgetClass.prototype._init = function() {
 };
 
 YandexMapsWidgetClass.prototype._createMap = function() {
+    var _this = this;
+
     this.ya_map = new ymaps.Map(this.id, {
         type:     this.parameters.type,
         center:   this.center,
@@ -34,6 +36,21 @@ YandexMapsWidgetClass.prototype._createMap = function() {
 
     if (this.parameters.scrollZoom === false) {
         this.ya_map.behaviors.disable('scrollZoom');
+    }
+
+    if (this.parameters.searchSupport === true) {
+        var searchControl = new ymaps.control.SearchControl({
+            options: {
+                noPlacemark: true
+            }
+        });
+
+        searchControl.events.add('resultselect', function (result){
+            _this.placemark.geometry.setCoordinates(searchControl.getResultsArray()[result.get('index')].geometry.getCoordinates());
+            _this.placemark.events.fire('drag');
+        });
+
+        this.ya_map.controls.add(searchControl);
     }
 
     return this;
