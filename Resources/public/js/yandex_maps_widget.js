@@ -38,7 +38,7 @@ YandexMapsWidgetClass.prototype._createMap = function() {
         this.ya_map.behaviors.disable('scrollZoom');
     }
 
-    if (this.parameters.searchSupport === true) {
+    if ((this.parameters.searchSupport === true) && !(this.lat_input.disabled && this.lng_input.disabled)){
         var searchControl = new ymaps.control.SearchControl({
             options: {
                 noPlacemark: true
@@ -58,7 +58,7 @@ YandexMapsWidgetClass.prototype._createMap = function() {
 
 YandexMapsWidgetClass.prototype._placeMark = function() {
     this.placemark = new ymaps.Placemark(this.center, {}, {
-        draggable: true
+        draggable: !(this.lat_input.disabled && this.lng_input.disabled)
     });
 
     this.ya_map.geoObjects.add(this.placemark);
@@ -68,6 +68,10 @@ YandexMapsWidgetClass.prototype._placeMark = function() {
 
 YandexMapsWidgetClass.prototype._bindEvents = function() {
     var _this = this;
+
+    if (this.lat_input.disabled && this.lng_input.disabled) {
+        return this;
+    }
 
     this.ya_map.events.add('click', function(e) {
         _this.placemark.geometry.setCoordinates(e.get('coords'));
